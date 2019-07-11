@@ -58,4 +58,11 @@ class Topic extends Model
     {
         return route('topics.show', array_merge([$this->id, $this->slug], $params));
     }
+
+    // 获取评论数
+    public function updateReplyCount()
+    {
+        $this->reply_count = $this->replies->count();
+        $this->save();
+    }
 }
