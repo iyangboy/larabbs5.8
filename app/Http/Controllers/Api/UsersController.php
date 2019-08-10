@@ -99,6 +99,12 @@ class UsersController extends Controller
         return $this->response->item($this->user(), new UserTransformer());
     }
 
+    // 获取用户详情
+    public function show(User $user)
+    {
+        return $this->response->item($user, new UserTransformer());
+    }
+
     public function update(UserRequest $request)
     {
         $user = $this->user();
