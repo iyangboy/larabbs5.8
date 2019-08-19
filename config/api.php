@@ -108,7 +108,7 @@ return [
     | your API will not be browsable via a web browser.
     |
     */
-
+    // 严格模式
     'strict' => env('API_STRICT', false),
 
     /*
