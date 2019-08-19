@@ -24,6 +24,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        // 数据备份
+        if (app()->environment('production')) {
+            $schedule->command('backup:run')->cron('0 */4 * * *');
+            $schedule->command('backup:monitor')->dailyAt('03:00');
+            $schedule->command('backup:clean')->dailyAt('03:10');
+        }
         // $schedule->command('inspire')
         //          ->hourly();
 
